@@ -24,12 +24,12 @@ public class DeltaModulation {
     private static Vector<Integer> encodeIt(int[][] amplitude_of_analog_signal) {
 
         //Data set for storing Digital Signal 🗃️
-        Vector<Integer> Generated_Binary_data = new Vector<Integer>(amplitude_of_analog_signal.length);
+        Vector<Integer> Generated_Binary_data = new Vector<Integer>();
         Generated_Binary_data.add(1);
 
         int [] Delta_StairCase = new int[2];
 
-        for(int i=0; i<amplitude_of_analog_signal.length-1; i++){
+        for (int i=0; i<amplitude_of_analog_signal.length-1; i++){
             
             Delta_StairCase[0] = amplitude_of_analog_signal[i][0];
             Delta_StairCase[1] = amplitude_of_analog_signal[i][1];
