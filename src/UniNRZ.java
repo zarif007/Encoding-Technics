@@ -1,3 +1,12 @@
+/*
+ -> Unipolar Encoding
+ Unipolar encoding is a line code. A positive voltage represents a binary 1,
+ and zero volts indicates a binary 0. It is the simplest line code, directly
+ encoding the bitstream, and is analogous to on-off keying in modulation.
+*/
+
+
+
 import java.util.Vector;
 
 public class UniNRZ {

@@ -1,3 +1,12 @@
+/*
+ -> Manchester Encoding
+ Manchester coding is a special case of binary phase-shift keying (BPSK),
+ where the data controls the phase of a square wave carrier whose frequency
+ is the data rate. Manchester code ensures frequent line voltage transitions,
+ directly proportional to the clock rate; this helps clock recovery.
+*/
+
+
 import java.util.Vector;
 
 public class Manchester {

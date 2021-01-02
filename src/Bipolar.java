@@ -1,3 +1,9 @@
+/*
+ -> Bipolar Encoding
+ In telecommunication, bipolar encoding is a type of return-to-zero (RZ) line code,
+ where two nonzero values are used, so that the three values are +, −, and zero.
+*/
+
 import java.util.Vector;
 
 public class Bipolar {

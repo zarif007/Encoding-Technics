@@ -1,3 +1,14 @@
+/*
+  -> Multi-Level Transmit
+  MLT-3 cycles sequentially through the voltage levels −1, 0, +1, 0. It moves
+  to the next state to transmit a 1 bit, and stays in the same state to transmit a 0 bit.
+  Similar to simple NRZ encoding, MLT-3 has a coding efficiency of 1 bit/baud, however it
+  requires four transitions (baud) to complete a full cycle (from low-to-middle, middle-to-high,
+  high-to-middle, middle-to-low). Thus, the maximum fundamental frequency is reduced to one
+  fourth of the baud rate. This makes signal transmission more amenable to copper wires.
+*/
+
+
 import java.util.Vector;
 
 public class MLT_3 {

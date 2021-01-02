@@ -1,3 +1,19 @@
+/*
+ -> Bipolar with eight-zero substitution (B8ZS)
+ Commonly used in the North American T1 (Digital Signal 1) 1.544 Mbit/s line code, bipolar
+ with eight-zero substitution (B8ZS) replaces each string of 8 consecutive zeros with the
+ special pattern "000VB0VB". Depending on the polarity of the preceding mark, that could be
+ 000+−0−+ or 000−+0+−.
+
+ -> High density bipolar of order 3 (HDB3)
+ Used in all levels of the European E-carrier system, the high density bipolar of order 3 (HDB3)
+ code replaces any instance of 4 consecutive 0 bits with one of the patterns "000V" or "B00V".
+ The choice is made to ensure that consecutive violations are of differing polarity; i.e.,
+ separated by an odd number of normal + or − marks.
+
+*/
+
+
 import java.util.Vector;
 
 public class Scrambling {
@@ -5,8 +21,8 @@ public class Scrambling {
         int Amplitude[] = {1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1};
         int Amplitude_1[] = {1, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
-//        Vector<Integer> GeneratedInB8ZS = GenInB8ZS(Amplitude);
-//        System.out.println(GeneratedInB8ZS);
+        Vector<Integer> GeneratedInB8ZS = GenInB8ZS(Amplitude);
+        System.out.println(GeneratedInB8ZS);
 
         Vector<Integer> GeneratedInHDB3 = GenInHDB3(Amplitude_1);
         System.out.println(GeneratedInHDB3);
@@ -66,21 +82,20 @@ public class Scrambling {
         }
 
         while (in < amplitude.length) {
-            int inversions_1[] = {0, 0, 0, inv}, inversions_2[] = {inv, 0, 0, inv};
             if(amplitude[in] == 1) {
                 GeneratedInHDB3.add(inversion);
                 inversion *= -1;
                 in++; hone++;
             }  else if(HDB3.contains(in)) {
-                int array[];
+                int inversions[];
                 if(hone % 2 == 0) {
-                    array = inversions_2;  inversion *= -1;
+                    inversions = new int[]{inv, 0, 0, inv};  inversion *= -1;
                 } else
-                    array = inversions_1;
+                    inversions = new int[]{0, 0, 0, inv};
                 inv = inversion;
 
                 for(int i=0; i<4; i++){
-                    GeneratedInHDB3.add(array[i]);
+                    GeneratedInHDB3.add(inversions[i]);
                 }
                 in += 4;
                 hone = 0;
